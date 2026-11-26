@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aakash R Madhavi — Résumé</title>
+  <meta name="description" content="Résumé of Aakash R Madhavi, Full Stack .NET Developer — C#, ASP.NET Core, Angular, SQL Server, fintech platforms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #101828;
+      --ink-soft: #344054;
+      --muted: #667085;
+      --rule: #e4e7ec;
+      --accent: #0369a1;
+      --accent-soft: #f0f9ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef1f6;
+      color: var(--ink);
+      font-family: "Inter", -apple-system, "Segoe UI", Arial, sans-serif;
+      font-size: 10.8pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Screen toolbar ---------- */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .toolbar a,
+    .toolbar button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid #cfd6e4;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 9.5pt;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .toolbar a:hover,
+    .toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+    .toolbar .primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .toolbar .primary:hover { background: #075985; color: #fff; }
+    .toolbar svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ---------- Sheet ---------- */
+    .sheet {
+      width: 210mm;
+      max-width: calc(100% - 32px);
+      margin: 24px auto 48px;
+      padding: 14mm 15mm;
+      background: #fff;
+      box-shadow: 0 20px 50px -30px rgba(16, 24, 40, 0.5);
+      border-radius: 2px;
+    }
+
+    header.resume-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 22px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .resume-head h1 {
+      margin: 0 0 2px;
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 21pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .resume-head .role {
+      margin: 0;
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .contact {
+      margin: 6px 0 0;
+      font-size: 9.4pt;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      text-align: right;
+    }
+    .contact a { color: inherit; text-decoration: none; border-bottom: 1px solid #cbd5e1; }
+    .contact span.sep { color: #d0d5dd; padding-inline: 3px; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 13px; }
+
+    h2 {
+      margin: 0 0 7px;
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 9.6pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    p { margin: 0 0 6px; }
+    .summary { color: var(--ink-soft); text-align: justify; }
+
+    .skills { display: grid; gap: 3px; font-size: 9.8pt; }
+    .skills div { display: grid; grid-template-columns: 128px 1fr; gap: 10px; }
+    .skills dt { font-weight: 600; color: var(--ink); }
+    .skills dd { margin: 0; color: var(--ink-soft); }
+
+    .job { margin-bottom: 11px; break-inside: avoid; }
+    .job:last-child { margin-bottom: 0; }
+    .job-top { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+    .job-top h3 { margin: 0; font-size: 11.2pt; font-weight: 700; letter-spacing: -0.01em; }
+    .job-top .dates { font-size: 9.4pt; font-weight: 500; color: var(--muted); white-space: nowrap; }
+    .job-sub { margin: 1px 0 5px; font-size: 9.7pt; font-weight: 500; color: var(--accent); }
+    .job-sub .loc { color: var(--muted); font-weight: 400; }
+
+    ul { margin: 0; padding-left: 16px; }
+    li { margin-bottom: 3px; color: var(--ink-soft); }
+    li::marker { color: var(--accent); }
+    strong { color: var(--ink); font-weight: 600; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+    .entry { margin-bottom: 7px; break-inside: avoid; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+    .entry-top h3 { margin: 0; font-size: 10.3pt; font-weight: 600; }
+    .entry-top span { font-size: 9.2pt; color: var(--muted); white-space: nowrap; }
+    .entry p { margin: 1px 0 0; font-size: 9.7pt; color: var(--ink-soft); }
+
+    .compact li { margin-bottom: 2px; font-size: 9.9pt; }
+    .note { font-size: 9.4pt; color: var(--muted); }
+
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+    }
+    .impact div {
+      padding: 8px 11px;
+      border-left: 2px solid var(--accent);
+      background: var(--accent-soft);
+    }
+    .impact dt {
+      font-family: "Sora", "Inter", sans-serif;
+      font-size: 14pt;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--accent);
+    }
+    .impact dd {
+      margin: 3px 0 0;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- Print ---------- */
+    @page { size: A4; margin: 10mm 12mm; }
+
+    @media print {
+      body { background: #fff; font-size: 9.4pt; line-height: 1.38; }
+      .toolbar { display: none !important; }
+      .sheet {
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      a { color: inherit; }
+
+      .resume-head { padding-bottom: 8px; }
+      .resume-head h1 { font-size: 18pt; }
+      .resume-head .role { font-size: 9.6pt; }
+      .contact { font-size: 8.6pt; line-height: 1.55; margin-top: 2px; }
+
+      section { margin-top: 9px; break-inside: avoid; }
+      h2 { margin-bottom: 5px; font-size: 8.8pt; }
+      p.summary { font-size: 9.2pt; }
+      .skills { font-size: 9pt; gap: 2px; }
+      .skills div { grid-template-columns: 118px 1fr; }
+
+      .job { margin-bottom: 8px; break-inside: avoid; }
+      .job-top h3 { font-size: 10.4pt; }
+      .job-top .dates { font-size: 8.6pt; }
+      .job-sub { font-size: 9pt; margin-bottom: 3px; }
+      .compact li { font-size: 9pt; margin-bottom: 1.5px; }
+      li { margin-bottom: 2px; }
+      .entry { margin-bottom: 5px; }
+      .entry p { font-size: 9pt; }
+      .two-col { gap: 18px; }
+      .impact { gap: 8px; }
+      .impact dt { font-size: 12.5pt; }
+      .impact dd { font-size: 8.2pt; }
+      .note { font-size: 8.6pt; margin-top: 10px !important; }
+    }
+
+    @media (max-width: 720px) {
+      body { font-size: 11pt; }
+      .sheet { padding: 22px 18px; }
+      header.resume-head { flex-direction: column; gap: 8px; }
+      .contact { text-align: left; }
+      .skills div { grid-template-columns: 1fr; gap: 0; }
+      .skills dt { margin-top: 4px; }
+      .two-col { grid-template-columns: 1fr; gap: 14px; }
+      .impact { grid-template-columns: 1fr 1fr; }
+      .job-top { flex-direction: column; gap: 1px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      Portfolio
+    </a>
+    <button class="primary" type="button" id="printBtn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>
+      Print / Save as PDF
+    </button>
+    <a href="Aakash_Madhavi_Resume_Updated.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      Download PDF
+    </a>
+  </div>
+
+  <main class="sheet">
+    <header class="resume-head">
+      <div>
+        <h1>Aakash R Madhavi</h1>
+        <p class="role">Full Stack .NET Developer</p>
+      </div>
+      <p class="contact">
+        Mumbai, India<br />
+        <a href="mailto:aakashdec2k@gmail.com">aakashdec2k@gmail.com</a>
+        <span class="sep">·</span> +91 77389 05716<br />
+        <!-- TODO: replace with your full LinkedIn profile URL -->
+        <a href="https://www.linkedin.com/in/">LinkedIn</a>
+        <span class="sep">·</span> <a href="index.html">Portfolio</a>
+      </p>
+    </header>
+
+    <section aria-labelledby="summary-h">
+      <h2 id="summary-h">Professional summary</h2>
+      <p class="summary">
+        Full Stack .NET Developer with 3+ years building secure, high-volume fintech platforms in
+        <strong>C#, ASP.NET Core (.NET 6+)</strong>, <strong>Entity Framework Core</strong>,
+        <strong>MS SQL Server</strong> and <strong>Angular</strong>. Delivered microservices-based REST APIs,
+        reconciliation and dispute engines, and encrypted payment workflows for SBI, ICICI, HDFC, Axis Bank,
+        IndusInd Bank, J&amp;K Bank and Hitachi Payment Services. Strong on API security (OAuth 2.0, JWT,
+        AES-256-CBC with per-transaction salt and IV), query performance tuning, and end-to-end ownership
+        from schema design through Angular UI to production rollout.
+      </p>
+    </section>
+
+    <section aria-labelledby="skills-h">
+      <h2 id="skills-h">Core technical skills</h2>
+      <dl class="skills">
+        <div><dt>Languages &amp; Frameworks</dt><dd>C#, ASP.NET Core (.NET 6+), Angular, TypeScript, JavaScript, HTML5, CSS3, AJAX, C</dd></div>
+        <div><dt>Data</dt><dd>MS SQL Server, Entity Framework Core, T-SQL &amp; stored procedures, indexing &amp; query tuning, Oracle, PostgreSQL, MongoDB</dd></div>
+        <div><dt>APIs &amp; Architecture</dt><dd>RESTful APIs, microservices, GraphQL, Swagger/OpenAPI, Postman, API gateway, background &amp; hosted services</dd></div>
+        <div><dt>Security</dt><dd>OAuth 2.0, JWT authentication, AES-256-CBC encryption, salt &amp; IV data protection, remote key injection (RKI)</dd></div>
+        <div><dt>Real-time &amp; Messaging</dt><dd>SignalR, Apache Kafka, MQTT, asynchronous pipelines</dd></div>
+        <div><dt>DevOps &amp; Delivery</dt><dd>Git, IIS hosting, Windows Server, CI/CD, Docker (fundamentals), Azure fundamentals, UAT &amp; production support</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="exp-h">
+      <h2 id="exp-h">Professional experience</h2>
+
+      <article class="job">
+        <div class="job-top">
+          <h3>Software Engineer</h3>
+          <span class="dates">Dec 2025 — Present</span>
+        </div>
+        <p class="job-sub">Ember Technologies Pvt. Ltd. <span class="loc">· Thane, India</span></p>
+        <ul>
+          <li>Build secure <strong>ASP.NET Core</strong> REST APIs with <strong>OAuth 2.0 and JWT</strong> for a Dispute Management platform, integrating with financial partners including ESB and J&amp;K Bank.</li>
+          <li>Designed fraud and chargeback detection services plus <strong>shadow-credit APIs</strong> that reimburse affected customers automatically, reducing manual intervention.</li>
+          <li>Owned the end-to-end <strong>JNK Matchpoint Recon (IPG Payout)</strong> module — BillDesk TTUM file generation and an automated email service dispatching payout files to vendors.</li>
+          <li>Automated backend workflows with hosted background services and cron-style schedulers, removing recurring manual daily operations.</li>
+          <li>Modelled relational schemas and optimised complex <strong>Oracle SQL</strong> queries with targeted indexing.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-top">
+          <h3>Senior Software Developer</h3>
+          <span class="dates">Jan 2023 — Nov 2025</span>
+        </div>
+        <p class="job-sub">Vizpay Business Solutions Pvt. Ltd. <span class="loc">· Thane, India</span></p>
+        <ul>
+          <li>Developed OAuth 2.0 / JWT-secured ASP.NET Core APIs for the <strong>Smart EMI platform</strong> integrated with SBI, ICICI and Hitachi Payment Services, supporting <strong>50K+ daily transactions</strong>.</li>
+          <li>Built the <strong>Axis Bank BC Billing Platform</strong>: a microservices billing module with .NET Core APIs and an Angular front-end, automating commission calculation and invoice generation across the Business Correspondent network.</li>
+          <li>Delivered <strong>IndusInd Bank Dynamic Recon &amp; Dispute Management</strong> using a microservices architecture, token-based API authentication and <strong>AES-256-CBC encryption with a unique salt and IV per transaction</strong>.</li>
+          <li>Enhanced Terminal Management System (TMS) APIs for ATM/POS provisioning, status tracking and reporting, used by HDFC, PhonePe and IDBI.</li>
+          <li>Implemented <strong>Remote Key Injection</strong> workflows to deliver cryptographic keys to remote POS/ATM terminals, backed by Oracle DB.</li>
+          <li>Built real-time <strong>SignalR</strong> notifications across fintech applications — cutting downtime-alert delays from minutes to seconds — and Kafka-based asynchronous pipelines to improve throughput.</li>
+          <li>Designed relational schemas and tuned SQL Server and PostgreSQL queries; developed GraphQL endpoints that consolidated multiple REST calls into unified queries.</li>
+          <li><strong>Led a five-developer team for four months</strong> through a critical transition — every open project delivered on schedule with zero deadline breaches.</li>
+          <li>Ran production demos and represented the company in client UATs across Dubai, Bahrain, Sri Lanka and Morocco, gathering requirements and managing rollout expectations.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="projects-h">
+      <h2 id="projects-h">Selected projects</h2>
+      <ul class="compact">
+        <li><strong>Axis Bank BC Billing Platform</strong> — Angular + .NET Core microservices automating billing and commission calculation for the bank's BC network.</li>
+        <li><strong>IndusInd Bank Dynamic Recon &amp; Dispute Management</strong> — microservices recon and dispute platform with Angular front-end, secured via token auth and AES-256-CBC encryption (salt + IV).</li>
+        <li><strong>JNK Matchpoint Recon (IPG Payout)</strong> — BillDesk TTUM generation, automated vendor file dispatch and scheduled reconciliation jobs.</li>
+        <li><strong>Real-Time POS Monitoring (HDFC &amp; IDBI)</strong> — SignalR alerting that reduced downtime notification from minutes to seconds, alongside TMS and RKI workflows.</li>
+        <li><strong>API Gateway Modernization</strong> — re-architected the API layer across fintech applications, improving developer productivity by <strong>20%</strong>.</li>
+      </ul>
+    </section>
+
+    <div class="two-col">
+      <section aria-labelledby="edu-h">
+        <h2 id="edu-h">Education</h2>
+        <div class="entry">
+          <div class="entry-top"><h3>MCA</h3><span>2023 · CGPA 8.76</span></div>
+          <p>Government Engineering College, Aurangabad</p>
+        </div>
+        <div class="entry">
+          <div class="entry-top"><h3>B.Sc. Computer Science</h3><span>2021 · CGPA 7.93</span></div>
+          <p>SIES ASC, Sion</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="cert-h">
+        <h2 id="cert-h">Certifications</h2>
+        <ul class="compact">
+          <li><strong>Microsoft Learn</strong> — Azure Fundamentals, .NET Core Development, Docker Basics</li>
+          <li><strong>PostgreSQL Performance Optimization</strong> — online training</li>
+          <li><strong>API Security Fundamentals</strong> — OWASP / Postman Academy</li>
+        </ul>
+      </section>
+    </div>
+
+    <section aria-labelledby="rec-h">
+      <h2 id="rec-h">Recognition</h2>
+      <ul class="compact">
+        <li>Selected for an <strong>international recognition trip to Vietnam</strong> for exceptional project delivery.</li>
+        <li>Represented the company in client demos with global banks and fintech partners across Dubai, Bahrain, Sri Lanka and Morocco.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="impact-h">
+      <h2 id="impact-h">Impact at a glance</h2>
+      <dl class="impact">
+        <div><dt>50K+</dt><dd>daily transactions supported on the Smart EMI platform</dd></div>
+        <div><dt>8+</dt><dd>bank and payment partner integrations shipped</dd></div>
+        <div><dt>20%</dt><dd>developer productivity gain after API gateway modernization</dd></div>
+        <div><dt>5</dt><dd>developers led through a critical delivery transition</dd></div>
+      </dl>
+    </section>
+
+    <p class="note" style="margin-top:14px">
+      Full portfolio, project write-ups and case notes are linked above.
+    </p>
+  </main>
+
+  <script>
+    document.getElementById("printBtn").addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>
