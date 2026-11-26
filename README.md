@@ -79,6 +79,9 @@ A4, margins "Default", and enable background graphics.
 
 ## Deploying
 
+> **Already deployed?** Pushing to `main` triggers `.github/workflows/pages.yml`,
+> which publishes the site to GitHub Pages automatically.
+
 ### GitHub Pages (free, permanent URL)
 
 1. Create a repository named `aakash-madhavi.github.io` (replace with your username)
